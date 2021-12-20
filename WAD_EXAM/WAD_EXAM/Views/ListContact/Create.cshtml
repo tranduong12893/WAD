@@ -1,0 +1,58 @@
+﻿@model WAD_EXAM.Models.ListContact
+@{
+    ViewBag.Title = "Create";
+}
+
+
+
+<div class="row">
+    <!-- left column -->
+    <div class="col-md-6">
+        <!-- general form elements -->
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Create Contact</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            @using (Html.BeginForm("Create", "Contact", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken() // cho 1 token vao form
+                @Html.ValidationSummary(true)// xac dinh se validate form data
+                <div class="card-body">
+                    <div class="form-group">
+                        @Html.LabelFor(Model => Model.ContactNumber)
+                        @Html.EditorFor(Model => Model.ContactNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter contact number" } })
+                        @Html.ValidationMessageFor(Model => Model.ContactNumber, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(Model => Model.ContactName)
+                        @Html.EditorFor(Model => Model.ContactName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter contact name" } })
+                        @Html.ValidationMessageFor(Model => Model.ContactName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(Model => Model.GroupName)
+                        @Html.EditorFor(Model => Model.GroupName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter group name" } })
+                        @Html.ValidationMessageFor(Model => Model.GroupName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(Model => Model.HireDate)
+                        @Html.EditorFor(Model => Model.HireDate, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter hiredate" } })
+                        @Html.ValidationMessageFor(Model => Model.HireDate, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(Model => Model.BirthDay)
+                        @Html.EditorFor(Model => Model.BirthDay, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter birthday" } })
+                        @Html.ValidationMessageFor(Model => Model.BirthDay, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
