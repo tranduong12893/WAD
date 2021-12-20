@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Online Contacts";
+}
+
+<h2 style="text-align:center;">@ViewBag.Title</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cat in Model)
+        {
+        <tr>
+            <td>@cat.Id</td>
+            <td>@cat.Name</td>
+            <td>@cat.Phone</td>
+            <td>@cat.Address</td>
+            <td>
+                <a href="~/Categories/Edit/@cat.Id">Edit</a>
+                <a onclick="return confirm('Are you sure?');" href="~/Categories/Delete/@cat.Id" class="text-danger">Delete</a>
+            </td>
+
+        </tr>
+        }
+
+
+
+    </tbody>
+</table>
